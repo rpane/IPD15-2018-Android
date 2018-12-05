@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/gradient"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:padding="16dp"
@@ -47,6 +47,12 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         app:srcCompat="@drawable/goofy_confused" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/selector"
+        tools:text="Click" />
 </LinearLayout>
