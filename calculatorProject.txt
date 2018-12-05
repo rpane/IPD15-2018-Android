@@ -1,0 +1,10 @@
+Calculator Project
+--------------------
+1 Decimal allowed
+Cannot divide by 0
+Allow certain amount of floating points.
+
+--------------------
+MidTerm
+
+- Activity life cycle
