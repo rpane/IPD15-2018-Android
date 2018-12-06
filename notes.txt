@@ -13,4 +13,34 @@ Creating an intent
 	startActivity(myIntent);
 
 
+MidTerm Review
+----------------
+
+Practical
+	Two activities
+	Be able to use intent, have go back
+	Radio Buttons
+	ImageView
+	Buttons
+	Free to use Linear or Relative with gravity properties
+Theorectical
+	What is Activity and Layout. What is the relationship between them.
+	What is manifest.xml
+	How to change icon of application or name
+	What is "R"
+	APK
+	When to deploy
+	Role of gradel
+	Virutalization, why and how we use it.
+	OnCreate Method
+	EventListener, how can u bind -> xml or java side
+	Margin, Padding and Gravity
+	What is the fold that u need to copy the images (Drawable)
+	What is the folder for icons(Mipmap)
+	What is backStack
+	How to goto next activity
+	Different types of intent (implicity, Explicit)
+	* Activity life cycle
+
+
 
