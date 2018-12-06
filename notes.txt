@@ -1,0 +1,16 @@
+Android Notes 12/6/2018
+-----------------------
+Type of activities
+
+	Explicit: Names a particular activty to launch
+
+	Implicit: Describe the task to perform; one of many apps could potentially hand it. 	("launch web browser")
+
+Back Stack: Android uses it to push different stacks to see the previous one
+
+Creating an intent
+	Intent myIntent = new Intent(this, Target.class);
+	startActivity(myIntent);
+
+
+
