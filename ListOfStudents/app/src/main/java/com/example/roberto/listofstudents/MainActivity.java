@@ -82,6 +82,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Student x = new Student(studentId, null,0);
 
         boolean find = false;
+        Iterator<Student> iterator = listOfStudents.iterator();
+        while (!find && iterator.hasNext()) {
+            Student oneStudent = iterator.next();
+
+            if (oneStudent.getStudentID() == studentId) {
+                iterator.remove();
+                find = true;
+            }
+
+            if (find)
+                Toast.makeText(this, "The student with the id: " + studentId + " is deleted successfully", Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(this, "The student with the id: " + studentId + " does not exist.", Toast.LENGTH_LONG).show();
+        }
 
     }
 
