@@ -35,12 +35,39 @@ Theorectical
 	OnCreate Method
 	EventListener, how can u bind -> xml or java side
 	Margin, Padding and Gravity
-	What is the fold that u need to copy the images (Drawable)
+	What is the folder that u need to copy the images (Drawable)
 	What is the folder for icons(Mipmap)
 	What is backStack
 	How to goto next activity
 	Different types of intent (implicity, Explicit)
 	* Activity life cycle
+	Gravity vs Layout Gravity
+	Benefit of MVC
+
+Answers
+	- Layout specifies what the app will look like. Activity specifies how the app should interact with the user.
+	- manifest.xml contains essential information about your app, such as what activities it
+contains, required libraries, and other declarations.
+	- To change an icon simply chnage android:roundIcon in the manifest to an image in mipmap.
+To change the app name, simply chnage the label in manifest.
+	- R is a dynamically generated class, created during build process to dynamically identify all assets.
+	- An APK file is an Android application package. The APK file includes the compiled Java files, along with any libraries and resources needed by your app.
+	- WHEN TO DEPLOY
+	- Gradle works behind the scenes to find and download libraries, compile and deploy your
+code, run tests, clean the grouting, and so on.	
+	- VIRUTALIZATION
+	- OnCreate() Called when the activity is first created. This is where you should do all of your normal static set up: create views, bind data to lists, etc. This method also provides you with a Bundle containing the activity's previously frozen state, if there was one. Always followed by onStart().
+	- An event listener allows you to listen for events that take place in your app, such as when views get clicked, when they receive or lose the focus, or when the user presses a hardware key on their device. Can be binded either through XML or Java side.
+	- The android:gravity attribute lets you specify how you want to position the contents of a view inside the view
+	- Folder to copy images is Drawable
+	- Folder for icons is Mipmap
+	- Backstack (LIFO) The back stack is a log of the places you’ve visited on the
+device, each place recorded as a separate transaction.
+	- Create a new intent and designate the specified class of activity u wish to reach. In the class make sure you incorporate getIntent() to recieve it.
+	- Intent Implicity is when you descrie a task to perform, like "launch web browser". Explicit is when you name a particular activity to launch.
+	-
+	- Gravity is the content and layout gravity is the position
+	- Pipe filter tech (linux)
 
 
-
+https://developer.android.com/reference/android/app/Activity
