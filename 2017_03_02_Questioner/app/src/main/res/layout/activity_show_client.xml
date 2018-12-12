@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_show_client"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.mysimpledream.a2017_03_02_questioner.ShowClient">
+
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        style="@style/TextViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Show Client Preferences" />
+
+    <TextView
+        android:id="@+id/textViewMovie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="20sp"
+        android:text="Movie"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/textViewMovie"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginLeft="40sp"
+        android:layout_toRightOf="@id/textViewMovie">
+
+        <RadioButton
+            android:id="@+id/radioBtnAdventure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="adv"
+            android:text="Adventure" />
+
+        <RadioButton
+            android:id="@+id/radioBtnAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="action"
+            android:text="Action" />
+
+        <RadioButton
+            android:id="@+id/radioBtnComedy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="comedy"
+            android:text="Comedy" />
+
+        <RadioButton
+            android:id="@+id/radioBtnAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="all"
+            android:text="All" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/ListBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radioGroup"
+        android:onClick="showListOfClients"
+        android:text="List" />
+
+    <TextView
+        android:id="@+id/textViewClients"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ListBtn"
+        android:gravity="center"
+        android:text="TextView" />
+
+
+</RelativeLayout>
