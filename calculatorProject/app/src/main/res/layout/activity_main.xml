@@ -152,7 +152,7 @@
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold|italic"
-        android:background="#79c8ca"
+        android:background="#7eca79"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

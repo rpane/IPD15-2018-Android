@@ -34,10 +34,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initialize();
+        myGetIntent();
     }
 
+    private void myGetIntent(){
+        String user = getIntent().getStringExtra("UserName");
+        String perc = getIntent().getStringExtra("userPercent");
+
+        if(user == null){
+            title.setText("Math Quiz");
+        }else{
+            title.setText(user +" "+ perc);
+        }
+
+    }
     public void initialize() {
         title = findViewById(R.id.tvTitle);
         question = findViewById(R.id.tvQuestion);
@@ -94,6 +105,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btn9 = findViewById(R.id.btn9);
         btn9.setOnClickListener(this);
+
+
 
     }
 

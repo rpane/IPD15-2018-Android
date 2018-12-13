@@ -2,7 +2,7 @@ package com.example.roberto.calculatorproject;
 
 import java.io.Serializable;
 
-public class Inputs implements Serializable {
+class Inputs implements Serializable {
     private int number1;
     private String operator;
     private int number2;
