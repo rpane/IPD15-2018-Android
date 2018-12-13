@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -21,11 +22,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnNeg;
 
     StringBuilder userInput = new StringBuilder();
+    ArrayList<Inputs> arrayList = new ArrayList<>();
 
     int num1, num2, rndOper;
     double answer;
     String operator;
     Random rnd = new Random();
+    boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,7 +193,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showScore() {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("userInputs", arrayList);
+
         Intent myIntent = new Intent(this, result.class);
+        myIntent.putExtra("IntentKey",bundle);
         startActivity(myIntent);
     }
 
@@ -241,11 +248,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             answer = round((double)num1/num2,2);
         }
 
+
         if(answer == Double.parseDouble(screen.getText().toString())){
             Toast.makeText(this,"Correct!",Toast.LENGTH_SHORT).show();
+            flag = true;
         }else{
             Toast.makeText(this,"Wrong! The answer is "+answer,Toast.LENGTH_SHORT).show();
+            flag = false;
         }
+
+        String answerStr = answer+"";
+        Inputs x = new Inputs(num1,operator,num2,answerStr,screen.getText().toString(),flag);
+        arrayList.add(x);
     }
 
     private void clearScreen() {

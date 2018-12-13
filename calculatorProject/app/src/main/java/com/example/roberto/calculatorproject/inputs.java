@@ -1,14 +1,16 @@
 package com.example.roberto.calculatorproject;
 
-public class inputs {
+import java.io.Serializable;
+
+public class Inputs implements Serializable {
     private int number1;
     private String operator;
     private int number2;
-    private double answer;
+    private String answer;
     private String userAnswer;
     private boolean flag;
 
-    public inputs(int number1, String operator, int number2, double answer, String userAnswer, boolean flag) {
+    public Inputs(int number1, String operator, int number2, String answer, String userAnswer, boolean flag) {
         this.number1 = number1;
         this.operator = operator;
         this.number2 = number2;
@@ -41,11 +43,11 @@ public class inputs {
         this.number2 = number2;
     }
 
-    public double getAnswer() {
+    public String getAnswer() {
         return answer;
     }
 
-    public void setAnswer(double answer) {
+    public void setAnswer(String answer) {
         this.answer = answer;
     }
 
@@ -68,6 +70,10 @@ public class inputs {
 
     @Override
     public String toString() {
-        return super.toString();
+        if(flag == true){
+            return String.format("Right!\n%d %s %d = %s\nUser Entered: %s",getNumber1(),getOperator(),getNumber2(), getAnswer(),getUserAnswer());
+        }else{
+            return  String.format("Wrong!\n%d %s %d = %s\nUser Entered: %s",getNumber1(),getOperator(),getNumber2(), getAnswer(),getUserAnswer());
+        }
     }
 }
