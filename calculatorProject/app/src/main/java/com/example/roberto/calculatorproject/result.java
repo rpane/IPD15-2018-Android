@@ -24,6 +24,7 @@ public class result extends AppCompatActivity implements View.OnClickListener {
     Button showBtn, backBtn;
     EditText userName;
     TextView tvPercent;
+    ListView listResults;
 
     private ArrayList<Inputs> resultList;
     ArrayAdapter adapter;
@@ -52,7 +53,7 @@ public class result extends AppCompatActivity implements View.OnClickListener {
 
         resultList = (ArrayList<Inputs>) bundledInputs;
 
-        ListView listResults = (ListView) findViewById(R.id.lvResults);
+        listResults = findViewById(R.id.lvResults);
         adapter = new ArrayAdapter<Inputs>(this,R.layout.listresults,R.id.ListForResults, resultList);
         listResults.setAdapter(adapter);
 
@@ -70,8 +71,7 @@ public class result extends AppCompatActivity implements View.OnClickListener {
                rightCounter++;
            }
        }
-       percent = 100*((double)rightCounter/total) +"%";
-
+       percent = (int)(100*((double)rightCounter/total)) +"%";
        return percent;
     }
 
@@ -127,17 +127,59 @@ public class result extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void sortAscend(ArrayList<Inputs> resultList) {
+        ArrayList<Inputs> sortedAscending = new ArrayList<>();
+        for(Inputs x : resultList){
+            if(x.isFlag()){
+                sortedAscending.add(0,x);
+            }else{
+                sortedAscending.add(sortedAscending.size(),x);
+            }
+        }
+        adapter = new ArrayAdapter<Inputs>(this,R.layout.listresults,R.id.ListForResults, sortedAscending);
+        listResults.setAdapter(adapter);
     }
 
     private void sortDesc(ArrayList<Inputs> resultList) {
+        ArrayList<Inputs> sortedDescend = new ArrayList<>();
+        for(Inputs x : resultList){
+            if(x.isFlag()){
+                sortedDescend.add(sortedDescend.size(),x);
+            }else{
+                sortedDescend.add(0,x);
+            }
+        }
+        adapter = new ArrayAdapter<Inputs>(this,R.layout.listresults,R.id.ListForResults, sortedDescend);
+        listResults.setAdapter(adapter);
     }
 
     private void getAllWrong(ArrayList<Inputs> resultList) {
+        ArrayList<Inputs> allWrong = new ArrayList<>();
+        for(Inputs x : resultList){
+            if(x.isFlag() == false){
+                allWrong.add(x);
+            }
+        }
+        adapter = new ArrayAdapter<Inputs>(this,R.layout.listresults,R.id.ListForResults, allWrong);
+        listResults.setAdapter(adapter);
     }
 
     private void getAllRight(ArrayList<Inputs> resultList) {
+        ArrayList<Inputs> allRight = new ArrayList<>();
+        for(Inputs x : resultList){
+            if(x.isFlag()){
+                allRight.add(x);
+            }
+        }
+        adapter = new ArrayAdapter<Inputs>(this,R.layout.listresults,R.id.ListForResults, allRight);
+        listResults.setAdapter(adapter);
     }
 
     private void getAll(ArrayList<Inputs> resultList) {
+        ArrayList<Inputs> allInputs = new ArrayList<>();
+        for(Inputs x : resultList){
+           allInputs.add(x);
+        }
+        adapter = new ArrayAdapter<Inputs>(this,R.layout.listresults,R.id.ListForResults, allInputs);
+        listResults.setAdapter(adapter);
     }
 }
