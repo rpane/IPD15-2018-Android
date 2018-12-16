@@ -130,9 +130,11 @@ public class result extends AppCompatActivity implements View.OnClickListener {
         ArrayList<Inputs> sortedAscending = new ArrayList<>();
         for(Inputs x : resultList){
             if(x.isFlag()){
-                sortedAscending.add(0,x);
-            }else{
                 sortedAscending.add(sortedAscending.size(),x);
+
+            }else{
+                sortedAscending.add(0,x);
+
             }
         }
         adapter = new ArrayAdapter<Inputs>(this,R.layout.listresults,R.id.ListForResults, sortedAscending);
@@ -143,9 +145,9 @@ public class result extends AppCompatActivity implements View.OnClickListener {
         ArrayList<Inputs> sortedDescend = new ArrayList<>();
         for(Inputs x : resultList){
             if(x.isFlag()){
-                sortedDescend.add(sortedDescend.size(),x);
-            }else{
                 sortedDescend.add(0,x);
+            }else{
+                sortedDescend.add(sortedDescend.size(),x);
             }
         }
         adapter = new ArrayAdapter<Inputs>(this,R.layout.listresults,R.id.ListForResults, sortedDescend);
