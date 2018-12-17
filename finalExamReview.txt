@@ -1,0 +1,26 @@
+FileIO
+---------- 
+- Must be Serialized
+- Ask Permission in manifest
+
+Practical
+--------------
+Similar to project of ListView
+	Activity with fields and buttons (add, remove, readfromfile)
+	Array of objects to pass into Bundle for new activity
+	onClick listener
+	3 Activities
+	*ListView, Bundles, Serializable, Permissions (Manifest)
+
+Theory
+-----------
+Activity life cycle.
+When is your app in the forground or background.
+If paused the ap will it run on Create Again.
+Passing a method using event listener.
+What is an Adapater and why do we use it.
+AsyncTask whats is it and why do we need it and what is the role of each of them.
+Database, SQLite open helper, foundation class. High level view of the process.
+Cursor, what is it when we use it. Content Value.
+Broadcast Receiver how it works.
+Permisions
