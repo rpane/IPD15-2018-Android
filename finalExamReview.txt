@@ -24,3 +24,16 @@ Database, SQLite open helper, foundation class. High level view of the process.
 Cursor, what is it when we use it. Content Value.
 Broadcast Receiver how it works.
 Permisions
+
+Heads Up
+----------
+Role of array adapter
+Why we need Ascytask
+Purpose of
+	- doInBackground
+	- onProgress
+	- onPose execution
+
+Role of SQLiteOpenHelper
+Role of Cursor
+Role of ContentValue
