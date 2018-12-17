@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void validateInput() {
-        if(userInput.length() == 0){
+        if(userInput.length() == 0 || question.length() ==0){
             return;
         }
         if(operator == " + "){
