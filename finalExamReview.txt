@@ -37,3 +37,25 @@ Purpose of
 Role of SQLiteOpenHelper
 Role of Cursor
 Role of ContentValue
+
+
+Review
+=========================================
+
+The role of the Array Adapter is to create a view by calling the toString() on each data object in the collection that is provided and places the result in a TextView.
+
+AsyncTask enables proper and easy use of the UI thread. This class allows you to perform background operations and publish results on the UI thread without having to manipulate threads and/or handlers.
+
+Purpose of:
+	- doInBackground: This step is used to perform background computation that can take a long time. The parameters of the asynchronous task are passed to this step. The result of the computation must be returned by this step and will be passed back to the last step.
+	- onProgress: This method is used to display any form of progress in the user interface while the background computation is still executing.
+	- onPostExecute: The result of the background computation is passed to this step as a parameter.
+
+The role of SQLiteOpenHelper is to manage database creation and version management. This class takes care of opening the database if it exists, creating it if it does not, and upgrading it as necessary. Transactions are used to make sure the database is always in a sensible state.
+
+The role of Cursor is to provide random read-write access to the result set returned by a database query. The cursor points to individual rows retuned after querying the database and you can use several methods like getInt(), getString() etc to extract information from specific columns of the current row.
+
+The role of ContentValue lets you put information inside an object in the form of Key-Value pairs for columns and their value. The object can then be passed to the insert() method of an instance of the SQLiteDatabase class to insert or update your WritableDatabase.
+
+	Broadcast Receiver: The system package manager registers the receiver when the app is installed. The receiver then becomes a separate entry point into your app which means that the system can start the app and deliver the broadcast if the app is not currently running. The system creates a new BroadcastReceiver component object to handle each broadcast that it receives. This object is valid only for the duration of the call to onReceive(Context, Intent). Once your code returns from this method, the system considers the component no longer active. 
+

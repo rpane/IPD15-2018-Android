@@ -1,6 +1,7 @@
 package com.example.roberto.file;
 
 import android.content.pm.PackageManager;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button writeStringPrivate, readStringPrivate, writeStringPublic, readStringPublic,
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText editText;
 
     int REQUEST_CODE = 1;
+    File file_object_private_external_storage, file_string_private_external_storage, file_string_public_external_storage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +28,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         initialize();
         storagePermissionRequest();
-        
+
         createFileInExternalStoragePrivateDirectory();
+        createFileInExternalStoragePublicDirectory();
     }
 
     private void createFileInExternalStoragePrivateDirectory() {
+        file_object_private_external_storage = FileManager.createFile(getExternalFilesDir("private_file"),
+                "file_object_private_external_storage");
+        file_string_private_external_storage = FileManager.createFile(getExternalFilesDir("private_file"),
+                "file_string_private_external_storage");
+    }
+
+    private void createFileInExternalStoragePublicDirectory() {
+        // This example DIRECTORY_PICTURES or can be DIRECTORY_MUSIC
+        file_string_public_external_storage = FileManager.createFile(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+                "file_string_public_external_storage");
     }
 
     private void initialize(){
@@ -49,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         writeObjectPrivate = findViewById(R.id.writeObjectPrivate);
         writeObjectPrivate.setOnClickListener(this);
 
-        readObjectPrivate = findViewById(R.id.button6);
+        readObjectPrivate = findViewById(R.id.readObjectPrivate);
         readObjectPrivate.setOnClickListener(this);
 
 
@@ -80,7 +95,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 FileManager.saveByte(file_string_private_external_storage, editText.getText().toString());
                 break;
             case R.id.readStringPrivate:
-                editText.setText();
+                editText.setText("Read Private External Storage String: " + FileManager.loadByte(file_string_private_external_storage));
+                break;
+            case R.id.writeStringPublic:
+                FileManager.saveByte(file_string_public_external_storage, editText.getText().toString());
+                break;
+            case R.id.readStringPublic:
+                editText.setText("Read Public External Storage String: " + FileManager.loadByte(file_string_public_external_storage));
+                break;
+            case R.id.writeObjectPrivate:
+                FileManager.saveObject(file_object_private_external_storage,new StringBuilder(editText.getText().toString()));
+                break;
+            case R.id.readObjectPrivate:
+                editText.setText("Read Private External Storage Object: " + FileManager.loadObject(file_object_private_external_storage).toString());
+                break;
         }
     }
 }
