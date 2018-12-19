@@ -25,6 +25,17 @@ Cursor, what is it when we use it. Content Value.
 Broadcast Receiver how it works.
 Permisions
 
+https://developer.android.com/reference/android/os/AsyncTask
+https://developer.android.com/reference/android/database/Cursor
+https://developer.android.com/reference/android/content/ContentValues
+https://www.quora.com/What-is-the-difference-between-content-value-and-cursor-in-Android-SQlite
+https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper
+https://developer.android.com/reference/android/widget/ArrayAdapter
+https://developer.android.com/guide/components/broadcasts#receiving-broadcasts
+https://developer.android.com/reference/android/content/BroadcastReceiver
+https://developer.android.com/reference/android/app/Activity
+https://developer.android.com/guide/topics/ui/ui-events
+
 Heads Up
 ----------
 Role of array adapter
@@ -57,5 +68,5 @@ The role of Cursor is to provide random read-write access to the result set retu
 
 The role of ContentValue lets you put information inside an object in the form of Key-Value pairs for columns and their value. The object can then be passed to the insert() method of an instance of the SQLiteDatabase class to insert or update your WritableDatabase.
 
-	Broadcast Receiver: The system package manager registers the receiver when the app is installed. The receiver then becomes a separate entry point into your app which means that the system can start the app and deliver the broadcast if the app is not currently running. The system creates a new BroadcastReceiver component object to handle each broadcast that it receives. This object is valid only for the duration of the call to onReceive(Context, Intent). Once your code returns from this method, the system considers the component no longer active. 
+Broadcast Receiver: The system package manager registers the receiver when the app is installed. The receiver then becomes a separate entry point into your app which means that the system can start the app and deliver the broadcast if the app is not currently running. The system creates a new BroadcastReceiver component object to handle each broadcast that it receives. This object is valid only for the duration of the call to onReceive(Context, Intent). Once your code returns from this method, the system considers the component no longer active. 
 
