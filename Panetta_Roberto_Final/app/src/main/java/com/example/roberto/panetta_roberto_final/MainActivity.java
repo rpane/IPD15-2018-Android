@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,12 +25,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     double balance;
     String FName, LName, PhoneNo;
 
+    int REQUEST_CODE = 1;
+    File file_object_private_external_storage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initialize();
+        createFileInExternalStoragePrivateDirectory();
+
+    }
+
+    private void createFileInExternalStoragePrivateDirectory() {
+        file_object_private_external_storage = FileManager.createFile(getExternalFilesDir("private_file"),
+                "file_object_private_external_storage");
     }
 
     private void initialize(){
@@ -100,12 +110,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etFamily.setText(null);
         etPhone.setText(null);
         etSIN.setText(null);
+
     }
 
     private void loadRecent() {
+        Customer x = custList.get(custList.size()-1);
+        etAccountNum.setText(x.getAccount().getAccountNumber()+"");
+        etDate.setText(x.getAccount().getOpenDate().toString());
+        etBalance.setText(x.getAccount().getBalance()+"");
+        etName.setText(x.getName());
+        etFamily.setText(x.getFamily());
+        etPhone.setText(x.getPhoneNo());
+        etSIN.setText(x.getSIN()+"");
+
+        Toast.makeText(this,"Successfully loaded recent object",Toast.LENGTH_SHORT).show();
     }
 
     private void saveEntries() {
+        FileManager.saveObject(file_object_private_external_storage,custList);
+        Toast.makeText(this,"Successfully Saved file",Toast.LENGTH_SHORT).show();
     }
 
     private void showList() {
@@ -129,6 +152,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 x.setName(FName);
                 x.setFamily(LName);
                 x.setPhoneNo(PhoneNo);
+
+                Toast.makeText(this,"Updated Account:"+x.getAccount().getAccountNumber(),Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -137,6 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for(Customer x : custList){
             if(x.getSIN() == Integer.parseInt(etSIN.getText().toString())){
                 custList.remove(x);
+                Toast.makeText(this,"Removed Account:"+x.getAccount().getAccountNumber(),Toast.LENGTH_SHORT).show();
             }else{
                 return;
             }
@@ -164,7 +190,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Customer y = new Customer(x,FName,LName,PhoneNo,sin);
             custList.add(y);
             Toast.makeText(this,"Account: "+x.getAccountNumber()+"\nHas been added!",Toast.LENGTH_SHORT).show();
-
+            clearAll();
         }
+
     }
 }
