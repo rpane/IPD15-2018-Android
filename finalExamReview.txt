@@ -53,7 +53,7 @@ Role of ContentValue
 Review
 =========================================
 
-The role of the Array Adapter is to create a view by calling the toString() on each data object in the collection that is provided and places the result in a TextView.
+The role of the Array Adapter is to create a view by calling the toString() on each data object in the collection that is provided and places the result in a TextView by default.
 
 AsyncTask enables proper and easy use of the UI thread. This class allows you to perform background operations and publish results on the UI thread without having to manipulate threads and/or handlers.
 
